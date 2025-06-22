@@ -8,6 +8,37 @@ const pageTitle = "Mi Blog";
   <meta charset="utf-8" />
   <title>{pageTitle}</title>
   <meta name="description" content="Temario completo del curso Astro" />
+
+  <style>
+    main {
+      margin: 24px;
+      margin-top: 32px;
+    }
+    p {
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+
+    ol {
+      margin-left: 20px;
+    }
+
+    li {
+      margin-bottom: 6px;
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+    }
+
+    ol ol {
+      list-style-type: lower-alpha;
+      margin-top: 8px;
+      margin-left: 20px;
+    }
+  </style>
 </head>
 
 <DiaYHora client:load />
@@ -22,34 +53,3 @@ const pageTitle = "Mi Blog";
     <li><a href="/posts/post-3/">Publicación 3</a></li>
   </ul>
 </main>
-
-<style>
-  main {
-    margin: 24px;
-    margin-top: 32px;
-  }
-  p {
-    font-family: Arial, sans-serif;
-    font-size: 18px;
-  }
-  h1 {
-    font-size: 24px;
-    margin-bottom: 16px;
-  }
-
-  ol {
-    margin-left: 20px;
-  }
-
-  li {
-    margin-bottom: 6px;
-    font-family: Arial, sans-serif;
-    font-size: 18px;
-  }
-
-  ol ol {
-    list-style-type: lower-alpha;
-    margin-top: 8px;
-    margin-left: 20px;
-  }
-</style>

@@ -9,6 +9,41 @@ const pageTitle = "Tutorial Astro";
   <meta charset="utf-8" />
   <title>{pageTitle}</title>
   <meta name="description" content="Temario completo del curso Astro" />
+
+  <style>
+    main {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      color: #333;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+    h2 {
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+
+    ol {
+      margin-left: 20px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    ol ol {
+      list-style-type: lower-alpha;
+      margin-top: 8px;
+      margin-left: 20px;
+    }
+
+    ol > li + li {
+      margin-top: 24px; /* separa las unidades entre sí */
+    }
+  </style>
 </head>
 
 <!-- Contenido de la página -->
@@ -35,52 +70,17 @@ const pageTitle = "Tutorial Astro";
         <li>✅Crea tu primera página Astro</li>
         <li>✅Escribe tu primera publicación en Markdown</li>
         <li>
-          <p>Añade contenido dinámico sobre ti:</p>
+          <p>✅Añade contenido dinámico sobre ti:</p>
           <ol>
             <li>✅Define y utiliza una variable</li>
             <li>✅Escribe expresiones JavaScript en Astro</li>
             <li>✅Renderización condicional de elementos</li>
-            <li>Checklist</li>
+            <li>✅Checklist</li>
           </ol>
         </li>
+        <li>Estiliza tu página 'Acerca de'</li>
+        <li>Añadir estilo a todo el sitio</li>
       </ol>
-      <li>Estiliza tu página 'Acerca de'</li>
-      <li>Añadir estilo a todo el sitio</li>
     </li>
   </ol>
 </main>
-
-<style>
-  main {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    color: #333;
-  }
-
-  h1 {
-    font-size: 24px;
-    margin-bottom: 16px;
-  }
-  h2 {
-    font-size: 20px;
-    margin-bottom: 16px;
-  }
-
-  ol {
-    margin-left: 20px;
-  }
-
-  li {
-    margin-bottom: 6px;
-  }
-
-  ol ol {
-    list-style-type: lower-alpha;
-    margin-top: 8px;
-    margin-left: 20px;
-  }
-
-  ol > li + li {
-    margin-top: 24px; /* separa las unidades entre sí */
-  }
-</style>
