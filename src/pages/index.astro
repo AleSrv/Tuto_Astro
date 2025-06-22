@@ -1,17 +1,18 @@
 ---
-
+const name = "Estudiando Astro";
+const title = "Tutorial Astro";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Tutorial Astro</title>
-	</head>
-	<body>
-		<h1>Estudiando Astro</h1>
-		<h2>Mi sitio con Astro</h2>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <h1>{name}</h1>
+    <h2>Mi nuevo sitio con Astro</h2>
+  </body>
 </html>
