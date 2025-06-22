@@ -3,50 +3,47 @@ import DiaYHora from "./components/DiaYHora.jsx";
 import Navbar from "./components/Navbar.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Tutorial Astro</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        padding: 20px;
-        color: #333;
-      }
+<head>
+  <meta charset="utf-8" />
+  <title>Tutorial Astro</title>
+  <meta name="description" content="Temario completo del curso Astro" />
+</head>
+<body>
+  <DiaYHora client:load />
+  <!-- Aquí activas el componente en el cliente -->
+  <Navbar />
+  <h1>Mi blog de aprendizaje sobre Astro</h1>
+  <p>Aquí es donde publicaré acerca de mi viaje aprendiendo Astro</p>
+  <ul>
+    <li><a href="/posts/post-1/">Publicación 1</a></li>
+    <li><a href="/posts/post-2/">Publicación 2</a></li>
+    <li><a href="/posts/post-3/">Publicación 3</a></li>
+  </ul>
+</body>
 
-      h1 {
-        font-size: 24px;
-        margin-bottom: 16px;
-      }
+<style>
+  main {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    color: #333;
+  }
 
-      ol {
-        margin-left: 20px;
-      }
+  h1 {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
 
-      li {
-        margin-bottom: 6px;
-      }
+  ol {
+    margin-left: 20px;
+  }
 
-      ol ol {
-        list-style-type: lower-alpha;
-        margin-top: 8px;
-        margin-left: 20px;
-      }
-    </style>
-  </head>
-  <body>
-    <DiaYHora client:load />
-    <!-- Aquí activas el componente en el cliente -->
-    <Navbar />
-    <h1>Mi blog de aprendizaje sobre Astro</h1>
-    <p>Aquí es donde publicaré acerca de mi viaje aprendiendo Astro</p>
-    <ul>
-      <li><a href="/posts/post-1/">Publicación 1</a></li>
-      <li><a href="/posts/post-2/">Publicación 2</a></li>
-      <li><a href="/posts/post-3/">Publicación 3</a></li>
-    </ul>
-  </body>
-</html>
+  li {
+    margin-bottom: 6px;
+  }
+
+  ol ol {
+    list-style-type: lower-alpha;
+    margin-top: 8px;
+    margin-left: 20px;
+  }
+</style>

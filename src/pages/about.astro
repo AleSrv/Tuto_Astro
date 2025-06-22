@@ -3,29 +3,42 @@ import DiaYHora from "./components/DiaYHora.jsx";
 import Navbar from "./components/Navbar.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Tutorial Astro</title>
-  </head>
-  <body>
-    <DiaYHora client:load />
-    <!-- Aquí activas el componente en el cliente -->
-    <Navbar />
-    <h1>Sobre mi</h1>
-    <h2>... ¡y mi nuevo sitio Astro!</h2>
+<head>
+  <meta charset="utf-8" />
+  <title>Tutorial Astro</title>
+  <meta name="description" content="Temario completo del curso Astro" />
+</head>
+<body>
+  <DiaYHora client:load />
+  <Navbar />
+  <!-- Aquí activas el componente en el cliente -->
+  <h1>Sobre mi</h1>
+  <h2>... ¡y mi nuevo sitio Astro!</h2>
 
-    <p>
-      Estoy trabajando en el tutorial introductorio de Astro. Esta es la segunda
-      página de mi sitio web, ¡y es la primera que he construido yo mismo!
-    </p>
+  <p>
+    Estoy trabajando en el tutorial introductorio de Astro. Esta es la segunda
+    página de mi sitio web, ¡y es la primera que he construido yo mismo!
+  </p>
 
-    <p>
-      Este sitio se irá actualizando a medida que vaya completando más partes
-      del tutorial, ¡así que no dejes de visitarlo para ver cómo va mi viaje!
-    </p>
-  </body>
-</html>
+  <p>
+    Este sitio se irá actualizando a medida que vaya completando más partes del
+    tutorial, ¡así que no dejes de visitarlo para ver cómo va mi viaje!
+  </p>
+</body>
+
+<style>
+  main {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    color: #333;
+  }
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+    h2 {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+</style>
