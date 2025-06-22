@@ -1,11 +1,13 @@
 ---
 import DiaYHora from "./components/DiaYHora.jsx";
 import Navbar from "./components/Navbar.astro";
+
+const pageTitle = "Sobre mi";
 ---
 
 <head>
   <meta charset="utf-8" />
-  <title>Tutorial Astro</title>
+  <title>{pageTitle}</title>
   <meta name="description" content="Temario completo del curso Astro" />
 </head>
 <DiaYHora client:load />
@@ -13,7 +15,7 @@ import Navbar from "./components/Navbar.astro";
 <!-- Aquí activas el componente en el cliente -->
 
 <main>
-  <h1>Sobre mi</h1>
+  <h1>{pageTitle}</h1>
   <h2>... ¡y mi nuevo sitio Astro!</h2>
 
   <p>
