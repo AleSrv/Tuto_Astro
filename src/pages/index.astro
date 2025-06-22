@@ -18,4 +18,15 @@ const title = "Tutorial Astro";
     <h1>{name}</h1>
     <p>Día : {new Date().toLocaleDateString()}</p>
   </body>
+  <footer>
+	
+  </footer>
 </html>
+
+<script>
+  const currentYear: number = new Date().getFullYear();
+  const footer = document.querySelector("footer") as HTMLElement | null;
+  if (footer) {
+    footer.innerText = `Año actual ${currentYear}`;
+  }
+</script>
