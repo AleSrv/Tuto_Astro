@@ -34,6 +34,7 @@ const fecha = `${day} de ${monthName} de ${year}`;
     <a href="/blog/">Blog</a>
     <a href="/about/">Sobre mí</a>
     <p>Día: {fecha}</p>
+    <p id="current-time">hora: ...</p>
     <h1>{name}</h1>
   </body>
   <footer></footer>
@@ -46,4 +47,20 @@ const fecha = `${day} de ${monthName} de ${year}`;
   if (footer) {
     footer.innerText = `©${currentYear} Alex Dev. Todos los derechos reservados.`;
   }
+
+  function actuaizarHora() {
+    const hora = new Date().toLocaleTimeString();
+
+    const parrafo = document.getElementById("current-time");
+    if (parrafo) {
+      const currentTime = new Date().toLocaleTimeString();
+      parrafo.innerText = `hora: ${currentTime}`;
+    }
+  }
+  //Poner hora al cargar
+  actuaizarHora();
+
+  //actualizar a cada segundo
+
+  setInterval(actuaizarHora, 1000);
 </script>
