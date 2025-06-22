@@ -1,13 +1,27 @@
 ---
 const name = "Estudiando Astro";
 const title = "Tutorial Astro";
-const year = new Date().getFullYear;
-const month = new Date().getMonth;
-const day = new Date().getDay;
-const fecha = `${day}/${month}/${year}`;
+const meses = [
+  "enero",
+  "febrero",
+  "marzo",
+  "abril",
+  "mayo",
+  "junio",
+  "julio",
+  "agosto",
+  "septiembre",
+  "octubre",
+  "noviembre",
+  "diciembre",
+];
+const year = new Date().getFullYear();
+const day = new Date().getDate();
+const monthName = meses[new Date().getMonth()];
+const fecha = `${day} de ${monthName} de ${year}`;
 ---
 
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -18,17 +32,17 @@ const fecha = `${day}/${month}/${year}`;
   <body>
     <a href="/">🏠 Inicio</a>
     <a href="/blog/">Blog</a>
-    <a href="/about/">Sobre mi</a>
+    <a href="/about/">Sobre mí</a>
+    <p>Día: {fecha}</p>
     <h1>{name}</h1>
-    <p>Día : {fecha}</p>
   </body>
   <footer></footer>
 </html>
 
 <script>
-  const currentYear: number = new Date().getFullYear();
+  const currentYear = new Date().getFullYear();
 
-  const footer = document.querySelector("footer") as HTMLElement | null;
+  const footer = document.querySelector("footer");
   if (footer) {
     footer.innerText = `©${currentYear} Alex Dev. Todos los derechos reservados.`;
   }
