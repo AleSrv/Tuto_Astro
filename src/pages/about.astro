@@ -8,10 +8,11 @@ import Navbar from "./components/Navbar.astro";
   <title>Tutorial Astro</title>
   <meta name="description" content="Temario completo del curso Astro" />
 </head>
-<body>
-  <DiaYHora client:load />
-  <Navbar />
-  <!-- Aquí activas el componente en el cliente -->
+<DiaYHora client:load />
+<Navbar />
+<!-- Aquí activas el componente en el cliente -->
+
+<main>
   <h1>Sobre mi</h1>
   <h2>... ¡y mi nuevo sitio Astro!</h2>
 
@@ -24,20 +25,17 @@ import Navbar from "./components/Navbar.astro";
     Este sitio se irá actualizando a medida que vaya completando más partes del
     tutorial, ¡así que no dejes de visitarlo para ver cómo va mi viaje!
   </p>
-</body>
+</main>
 
 <style>
   main {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    color: #333;
+    margin: 28px;
   }
-
   h1 {
     font-size: 24px;
     margin-bottom: 16px;
   }
-    h2 {
+  h2 {
     font-size: 18px;
     margin-bottom: 16px;
   }
