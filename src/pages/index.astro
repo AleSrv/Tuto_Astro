@@ -1,6 +1,10 @@
 ---
 const name = "Estudiando Astro";
 const title = "Tutorial Astro";
+const year = new Date().getFullYear;
+const month = new Date().getMonth;
+const day = new Date().getDay;
+const fecha = `${day}/${month}/${year}`;
 ---
 
 <html lang="en">
@@ -16,7 +20,7 @@ const title = "Tutorial Astro";
     <a href="/blog/">Blog</a>
     <a href="/about/">Sobre mi</a>
     <h1>{name}</h1>
-    <p>Día : {new Date().toLocaleDateString()}</p>
+    <p>Día : {fecha}</p>
   </body>
   <footer></footer>
 </html>
