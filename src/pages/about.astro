@@ -1,5 +1,6 @@
 ---
-
+import DiaYHora from "./components/DiaYHora.jsx";
+import Navbar from "./components/Navbar.astro";
 ---
 
 <html lang="en">
@@ -11,9 +12,10 @@
     <title>Tutorial Astro</title>
   </head>
   <body>
-    <a href="/">🏠 Inicio</a>
-    <a href="/blog/">Blog</a>
-    <a href="/about/">Sobre mi</a>
+    <DiaYHora client:load />
+    <!-- Aquí activas el componente en el cliente -->
+
+    <Navbar />
     <h1>Sobre mi</h1>
     <h2>... ¡y mi nuevo sitio Astro!</h2>
 
