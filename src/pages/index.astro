@@ -3,66 +3,66 @@ import DiaYHora from "./components/DiaYHora.jsx";
 import Navbar from "./components/Navbar.astro";
 ---
 
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Tutorial Astro</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        padding: 20px;
-        color: #333;
-      }
+<!-- Head personalizado -->
+<head>
+  <meta charset="utf-8" />
+  <title>Tutorial Astro</title>
+  <meta name="description" content="Temario completo del curso Astro" />
+</head>
 
-      h1 {
-        font-size: 24px;
-        margin-bottom: 16px;
-      }
+<!-- Contenido de la página -->
+<Navbar />
+<DiaYHora client:load />
 
-      ol {
-        margin-left: 20px;
-      }
-
-      li {
-        margin-bottom: 6px;
-      }
-
-      ol ol {
-        list-style-type: lower-alpha;
-        margin-top: 8px;
-        margin-left: 20px;
-      }
-    </style>
-  </head>
-  <body>
-    <DiaYHora client:load />
-    <Navbar />
-
-    <main>
-      <h1>Temario del Curso</h1>
+<main>
+  <h1>Temario del Curso</h1>
+  <ol>
+    <li>
+      <strong>Unidad 1 - Configuración</strong>
       <ol>
-        <li>
-          <strong>Unidad 1 - Configuración</strong>
-          <ol>
-            <li>✅Prepara tu entorno de desarrollo</li>
-            <li>✅Crea tu primer proyecto en Astro</li>
-            <li>✅Escribe tu primera línea de Astro</li>
-            <li>✅Almacena tu repositorio en línea</li>
-            <li>✅Despliega tu sitio en la web</li>
-          </ol>
-        </li>
-        <li>
-          <strong>Unidad 2 - Componentes</strong>
-          <ol>
-            <li>✅Crea tu primera página Astro</li>
-            <li>✅Escribe tu primera publicación en Markdown</li>
-            <li>Añade contenido dinámico sobre ti</li>
-            <li>Estiliza tu página 'Acerca de'</li>
-            <li>Añadir estilo a todo el sitio</li>
-          </ol>
-        </li>
+        <li>✅Prepara tu entorno de desarrollo</li>
+        <li>✅Crea tu primer proyecto en Astro</li>
+        <li>✅Escribe tu primera línea de Astro</li>
+        <li>✅Almacena tu repositorio en línea</li>
+        <li>✅Despliega tu sitio en la web</li>
       </ol>
-    </main>
-  </body>
+    </li>
+    <li>
+      <strong>Unidad 2 - Componentes</strong>
+      <ol>
+        <li>✅Crea tu primera página Astro</li>
+        <li>✅Escribe tu primera publicación en Markdown</li>
+        <li>Añade contenido dinámico sobre ti</li>
+        <li>Estiliza tu página 'Acerca de'</li>
+        <li>Añadir estilo a todo el sitio</li>
+      </ol>
+    </li>
+  </ol>
+</main>
+
+<style>
+  main {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    color: #333;
+  }
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  ol {
+    margin-left: 20px;
+  }
+
+  li {
+    margin-bottom: 6px;
+  }
+
+  ol ol {
+    list-style-type: lower-alpha;
+    margin-top: 8px;
+    margin-left: 20px;
+  }
+</style>

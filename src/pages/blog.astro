@@ -10,6 +10,32 @@ import Navbar from "./components/Navbar.astro";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Tutorial Astro</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        color: #333;
+      }
+
+      h1 {
+        font-size: 24px;
+        margin-bottom: 16px;
+      }
+
+      ol {
+        margin-left: 20px;
+      }
+
+      li {
+        margin-bottom: 6px;
+      }
+
+      ol ol {
+        list-style-type: lower-alpha;
+        margin-top: 8px;
+        margin-left: 20px;
+      }
+    </style>
   </head>
   <body>
     <DiaYHora client:load />
