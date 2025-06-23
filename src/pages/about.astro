@@ -22,6 +22,9 @@ const skills = [
 const happy = true;
 const finished = false;
 const goal = 3;
+const skillColor = "navy";
+const fontWeight = "bold";
+const textCase = "uppercase";
 ---
 
 <head>
@@ -29,7 +32,7 @@ const goal = 3;
   <title>{pageTitle}</title>
   <meta name="description" content="Temario completo del curso Astro" />
 
-  <style>
+  <style define:vars={{ skillColor, fontWeight, textCase }}>
     main {
       margin: 24px;
       margin-top: 32px;
@@ -39,8 +42,13 @@ const goal = 3;
       font-size: 18px;
     }
     h1 {
-      font-size: 24px;
-      margin-bottom: 16px;
+      color: purple;
+      font-size: 4rem;
+    }
+    .skill {
+      color: var(--skillColor);
+      font-weight: var(--fontWeight);
+      text-transform: var(--textCase);
     }
 
     h2 {
@@ -78,7 +86,7 @@ const goal = 3;
 
   <p>Mis habilidades son:</p>
   <ul>
-    {skills.map((skill) => <li>{skill}</li>)}
+    {skills.map((skill) => <li class="skill">{skill}</li>)}
   </ul>
 
   {happy && <p>¡Estoy feliz de aprender Astro!</p>}
