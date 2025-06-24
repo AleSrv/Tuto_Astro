@@ -1,6 +1,6 @@
 ---
 import DiaYHora from "../components/DiaYHora.jsx";
-import Navbar from "../components/Navbar.astro";
+import Navigation from "../components/Navigation.astro";
 import "../styles/global.css";
 const pageTitle = "Mi Blog";
 ---
@@ -44,7 +44,7 @@ const pageTitle = "Mi Blog";
 
 <DiaYHora client:load />
 <!-- Aquí activas el componente en el cliente -->
-<Navbar />
+<Navigation />
 <main>
   <h1>{pageTitle}</h1>
   <p>Aquí es donde publicaré acerca de mi viaje aprendiendo Astro:</p>
