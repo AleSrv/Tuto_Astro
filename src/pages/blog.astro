@@ -1,7 +1,8 @@
 ---
+import "../styles/global.css";
 import DiaYHora from "../components/DiaYHora.jsx";
 import Navigation from "../components/Navigation.astro";
-import "../styles/global.css";
+import Footer from "../components/Footer.astro";
 const pageTitle = "Mi Blog";
 ---
 
@@ -39,6 +40,13 @@ const pageTitle = "Mi Blog";
       margin-top: 8px;
       margin-left: 20px;
     }
+    a {
+      text-decoration: none;
+      color: blue;
+    }
+    a:hover {
+      font-weight: bold;
+    }
   </style>
 </head>
 
@@ -54,3 +62,5 @@ const pageTitle = "Mi Blog";
     <li><a href="/posts/post-3/">Publicación 3</a></li>
   </ul>
 </main>
+
+<Footer />

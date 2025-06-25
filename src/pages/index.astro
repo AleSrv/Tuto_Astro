@@ -1,7 +1,8 @@
 ---
+import "../styles/global.css";
 import DiaYHora from "../components/DiaYHora.jsx";
 import Navigation from "../components/Navigation.astro";
-import "../styles/global.css";
+import Footer from "../components/Footer.astro";
 const pageTitle = "Tutorial Astro";
 ---
 
@@ -15,7 +16,7 @@ const pageTitle = "Tutorial Astro";
     main {
       font-family: Arial, sans-serif;
       padding: 20px;
-      color: #333;
+      color: black;
     }
 
     h1 {
@@ -44,12 +45,22 @@ const pageTitle = "Tutorial Astro";
     ol > li + li {
       margin-top: 24px; /* separa las unidades entre sí */
     }
+
+    div {
+      background-color: grey;
+      padding: 15px;
+      border-radius: 20px;
+      text-align: center;
+      color: rgb(33, 32, 32);
+    }
   </style>
 </head>
 
 <!-- Contenido de la página -->
-<DiaYHora client:load />
-<Navigation />
+<div>
+  <DiaYHora client:load />
+  <Navigation />
+</div>
 
 <main>
   <h1>{pageTitle}</h1>
@@ -90,9 +101,9 @@ const pageTitle = "Tutorial Astro";
       <ol>
         <ul>
           <li>✅Mirando hacia el futuro</li>
-          <li>Checklist</li>
+          <li>✅Checklist</li>
         </ul>
-        <li>Crea un componente de navegación reutilizable</li>
+        <li>✅Crea un componente de navegación reutilizable</li>
         <li>Crea un pie de página para redes sociales</li>
         <li>Constrúyelo tu mismo - Encabezado</li>
         <li>Envía tu primer script al navegador</li>
@@ -100,3 +111,6 @@ const pageTitle = "Tutorial Astro";
     </li>
   </ol>
 </main>
+
+<!-- footer -->
+<Footer />

@@ -1,0 +1,28 @@
+---
+const platform = "github";
+const username = "AleSrv";
+import Social from "./Social.astro";
+const year = new Date().getFullYear();
+---
+
+<footer>
+  <p>
+    Sígueme en:
+    <Social platform="Instagram" username="alepapitosrv" />
+    <Social platform="github" username="AleSrv" />
+    <Social platform="youtube" username="@alef9753" />
+  </p>
+  <!-- Derechos de autor -->
+  <div class="text-gray-400">
+    © {year} Alex Dev. Todos los derechos reservados.
+  </div>
+</footer>
+
+<style>
+  footer {
+    background-color: grey;
+    padding: 15px;
+    border-radius: 20px;
+    text-align: center;
+  }
+</style>
