@@ -1,8 +1,7 @@
 ---
 import "../styles/global.css";
-import DiaYHora from "../components/DiaYHora.jsx";
-import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
 
 const pageTitle = "Sobre mi";
 const identity = {
@@ -33,44 +32,9 @@ const textCase = "uppercase";
   <meta charset="utf-8" />
   <title>{pageTitle}</title>
   <meta name="description" content="Temario completo del curso Astro" />
-
-  <style define:vars={{ skillColor, fontWeight, textCase }}>
-    main {
-      margin: 24px;
-      margin-top: 32px;
-    }
-    p {
-      font-family: Arial, sans-serif;
-      font-size: 18px;
-    }
-    h1 {
-      color: purple;
-      font-size: 4rem;
-    }
-    .skill {
-      color: var(--skillColor);
-      font-weight: var(--fontWeight);
-      text-transform: var(--textCase);
-    }
-
-    h2 {
-      font-size: 18px;
-      margin-bottom: 16px;
-    }
-        div {
-      background-color: grey;
-      padding: 15px;
-      border-radius: 20px;
-      text-align: center;
-      color: rgb(33, 32, 32);
-    }
-  </style>
 </head>
 <!-- Aquí activas el componente en el cliente -->
-<div>
-  <DiaYHora client:load />
-  <Navigation />
-</div>
+<Header />
 
 <main>
   <h1>{pageTitle}</h1>
