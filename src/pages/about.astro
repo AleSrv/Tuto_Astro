@@ -57,11 +57,20 @@ const textCase = "uppercase";
       font-size: 18px;
       margin-bottom: 16px;
     }
+        div {
+      background-color: grey;
+      padding: 15px;
+      border-radius: 20px;
+      text-align: center;
+      color: rgb(33, 32, 32);
+    }
   </style>
 </head>
 <!-- Aquí activas el componente en el cliente -->
-<DiaYHora client:load />
-<Navigation />
+<div>
+  <DiaYHora client:load />
+  <Navigation />
+</div>
 
 <main>
   <h1>{pageTitle}</h1>

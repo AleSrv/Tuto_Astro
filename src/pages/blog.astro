@@ -47,12 +47,21 @@ const pageTitle = "Mi Blog";
     a:hover {
       font-weight: bold;
     }
+
+    div {
+      background-color: grey;
+      padding: 15px;
+      border-radius: 20px;
+      text-align: center;
+      color: rgb(33, 32, 32);
+    }
   </style>
 </head>
 
-<DiaYHora client:load />
-<!-- Aquí activas el componente en el cliente -->
-<Navigation />
+<div>
+  <DiaYHora client:load />
+  <Navigation />
+</div>
 <main>
   <h1>{pageTitle}</h1>
   <p>Aquí es donde publicaré acerca de mi viaje aprendiendo Astro:</p>
