@@ -20,6 +20,7 @@ h1 {
   font-size: 2.5rem;
 }
 
+/* Hamburguesa */
 .hamburger {
   padding-right: 20px;
   cursor: pointer;
@@ -31,20 +32,23 @@ h1 {
   height: 5px;
   margin-bottom: 10px;
   background-color: #ff9776;
+  transition: all 0.3s ease;
 }
 
-/* estilos de la barra de navegación*/
-
+/* Menú móvil */
 .nav-links {
-  width: 100%;
-  top: 5rem;
-  left: 48px;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s ease-in-out;
   background-color: #ff9776;
-  display: none;
-  margin: 0;
-  transition: all 0.3s ease-in-out;
 }
 
+/* Activar menú desplegable */
+.nav-links.expanded {
+  max-height: 500px; /* suficiente para que quepan los enlaces */
+}
+
+/* Estilos de los enlaces */
 .nav-links a {
   display: block;
   text-align: center;
@@ -53,29 +57,31 @@ h1 {
   font-size: 1.2rem;
   font-weight: bold;
   text-transform: uppercase;
+  color: white;
 }
 
 .nav-links a:hover,
 .nav-links a:focus {
-  background-color: #ff9776;
+  background-color: #e56c4c;
 }
 
-.expanded {
-  display: unset;
-}
-
+/* Menú escritorio */
 @media screen and (min-width: 636px) {
   .nav-links {
-    margin-left: 5em;
-    display: block;
-    position: static;
-    width: auto;
+    max-height: none !important;
+    display: flex;
+    justify-content: center;
     background: none;
+    margin-left: 5em;
   }
 
   .nav-links a {
     display: inline-block;
     padding: 15px 20px;
+    color: #333;
   }
 
+  .hamburger {
+    display: none;
+  }
 }
