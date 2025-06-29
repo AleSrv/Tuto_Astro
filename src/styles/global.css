@@ -1,3 +1,4 @@
+/* Estilo base */
 html {
   background-color: #f1f5f9;
   font-family: sans-serif;
@@ -20,35 +21,47 @@ h1 {
   font-size: 2.5rem;
 }
 
-/* Hamburguesa */
+/* ----------- Estilo Hamburguesa ----------- */
 .hamburger {
-  padding-right: 20px;
+  padding: 10px 20px;
   cursor: pointer;
+  display: block; /* visible en móvil */
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
 }
 
 .hamburger .line {
   display: block;
-  width: 40px;
-  height: 5px;
-  margin-bottom: 10px;
+  width: 35px;
+  height: 4px;
+  margin-bottom: 8px;
   background-color: #ff9776;
   transition: all 0.3s ease;
 }
 
-/* Menú móvil */
+/* ----------- Menú desplegable (móvil) ----------- */
 .nav-links {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
   overflow: hidden;
   max-height: 0;
-  transition: max-height 0.5s ease-in-out;
   background-color: #ff9776;
+  border-top: 2px solid white;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: max-height 0.5s ease-in-out;
+  z-index: 999;
 }
 
-/* Activar menú desplegable */
+/* Al hacer click en hamburguesa */
 .nav-links.expanded {
-  max-height: 500px; /* suficiente para que quepan los enlaces */
+  max-height: 300px; /* ajustar según contenido */
 }
 
-/* Estilos de los enlaces */
+/* Enlaces */
 .nav-links a {
   display: block;
   text-align: center;
@@ -58,6 +71,7 @@ h1 {
   font-weight: bold;
   text-transform: uppercase;
   color: white;
+  transition: background 0.3s ease;
 }
 
 .nav-links a:hover,
@@ -65,23 +79,29 @@ h1 {
   background-color: #e56c4c;
 }
 
-/* Menú escritorio */
+/* ----------- Menú escritorio ----------- */
 @media screen and (min-width: 636px) {
+  nav {
+    position: static;
+  }
+
+  .hamburger {
+    display: none; /* ocultar hamburguesa en escritorio */
+  }
+
   .nav-links {
+    position: static;
     max-height: none !important;
     display: flex;
     justify-content: center;
     background: none;
-    margin-left: 5em;
+    box-shadow: none;
+    border: none;
   }
 
   .nav-links a {
     display: inline-block;
     padding: 15px 20px;
     color: #333;
-  }
-
-  .hamburger {
-    display: none;
   }
 }
