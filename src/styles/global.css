@@ -39,6 +39,14 @@ h1 {
   font-size: 2.5rem;
 }
 
+footer p {
+  background-color: white;
+  color: #0f172a;
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+}
+
 /* -------------------- HEADER Y FOOTER -------------------- */
 header {
   background: #0f172a;
