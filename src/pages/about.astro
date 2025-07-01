@@ -33,47 +33,52 @@ const textCase = "uppercase";
   <title>{pageTitle}</title>
   <meta name="description" content="Temario completo del curso Astro" />
 </head>
-<!-- Aquí activas el componente en el cliente -->
-<Header />
 
-<main>
-  <h1>{pageTitle}</h1>
-  <h2>... ¡y mi nuevo sitio Astro!</h2>
+<!-- Contenido de la página -->
 
-  <p>
-    Este sitio se irá actualizando a medida que vaya completando más partes del
-    tutorial, ¡así que no dejes de visitarlo para ver cómo va mi viaje!
-  </p>
+<body>
+  <Header />
 
-  <p>He aquí algunos datos sobre mí:</p>
-  <ul>
-    <li>Me llamo {identity.firstName}.</li>
-    <li>Vivo en {identity.country} y trabajo como {identity.occupation}.</li>
+  <main>
+    <h1>{pageTitle}</h1>
+    <h2>... ¡y mi nuevo sitio Astro!</h2>
+
+    <p>
+      Este sitio se irá actualizando a medida que vaya completando más partes
+      del tutorial, ¡así que no dejes de visitarlo para ver cómo va mi viaje!
+    </p>
+
+    <p>He aquí algunos datos sobre mí:</p>
+    <ul>
+      <li>Me llamo {identity.firstName}.</li>
+      <li>Vivo en {identity.country} y trabajo como {identity.occupation}.</li>
+      {
+        identity.hobbies.length >= 2 && (
+          <li>
+            Dos de mis aficiones son: {identity.hobbies[0]} y{" "}
+            {identity.hobbies[1]}
+          </li>
+        )
+      }
+    </ul>
+
+    <p>Mis habilidades son:</p>
+    <ul>
+      {skills.map((skill) => <li class="skill">{skill}</li>)}
+    </ul>
+
+    {happy && <p>¡Estoy feliz de aprender Astro!</p>}
+
+    {finished && <p>¡He terminado este tutorial!</p>}
+
     {
-      identity.hobbies.length >= 2 && (
-        <li>
-          Dos de mis aficiones son: {identity.hobbies[0]} y{" "}
-          {identity.hobbies[1]}
-        </li>
+      goal === 3 ? (
+        <p>Mi objetivo es terminar en 3 días.</p>
+      ) : (
+        <p>Mi objetivo no son 3 días.</p>
       )
     }
-  </ul>
-
-  <p>Mis habilidades son:</p>
-  <ul>
-    {skills.map((skill) => <li class="skill">{skill}</li>)}
-  </ul>
-
-  {happy && <p>¡Estoy feliz de aprender Astro!</p>}
-
-  {finished && <p>¡He terminado este tutorial!</p>}
-
-  {
-    goal === 3 ? (
-      <p>Mi objetivo es terminar en 3 días.</p>
-    ) : (
-      <p>Mi objetivo no son 3 días.</p>
-    )
-  }
-</main>
-<Footer />
+  </main>
+  <Footer />
+  <script src="/scripts/menu.js" defer></script>
+</body>
