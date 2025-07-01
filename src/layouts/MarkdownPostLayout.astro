@@ -3,6 +3,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 const { frontmatter } = Astro.props;
+import MainFrontmatter from "../components/Header.astro";
 ---
 
 <html lang="es">
@@ -16,6 +17,7 @@ const { frontmatter } = Astro.props;
   <body>
     <Header />
     <main>
+      <!-- <MainFrontmatter/> -->
       <h1>{frontmatter.title}</h1>
       <p>Publicado el: {frontmatter.pubDate.toString().slice(0, 10)}</p>
       <p>Mi estado:<em> {frontmatter.description}</em></p>
