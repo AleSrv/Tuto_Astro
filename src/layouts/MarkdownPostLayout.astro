@@ -11,27 +11,12 @@ const { frontmatter } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>{}</title>
+    <title>{frontmatter.title}</title>
   </head>
-
   <body>
-    <main>
-      <Header>
-        <p>Publicado el: {frontmatter.pubDate}</p>
-        <h1>{frontmatter.title}</h1>
-        <p>Escrito por {frontmatter.author}</p>
-        <p>{frontmatter.description}</p>
-        <img
-          src="https://docs.astro.build/assets/full-logo-light.png"
-          alt="El logotipo completo de Astro."
-        />
-      </Header>
-      <slot />
-      <p>
-        <span>#{frontmatter.tags[0]}</span>
-        <span>#{frontmatter.tags[1]}</span>
-        <span>#{frontmatter.tags[2]}</span>
-      </p>
-    </main>
+    <Header />
+    <slot />
+    <Footer />
+    <script src="/scripts/menu.js" defer></script>
   </body>
 </html>
