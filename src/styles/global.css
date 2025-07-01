@@ -20,6 +20,27 @@ h1 {
   margin: 1rem 0;
   font-size: 2.5rem;
 }
+.nav-container {
+  display: flex;
+  justify-content: space-between; /* Separar izquierda y derecha */
+  align-items: center;
+  width: 100%;
+  padding: 0 1rem;
+  position: relative; /* Necesario si usas absolute en hijos */
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Espacio entre hamburger y navegación */
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+
 
 /* ----------- Estilo Hamburguesa ----------- */
 .hamburger {
@@ -28,7 +49,6 @@ h1 {
   display: block; /* visible en móvil */
   position: absolute;
   top: 10px;
-  right: 10px;
   z-index: 1000;
 }
 
