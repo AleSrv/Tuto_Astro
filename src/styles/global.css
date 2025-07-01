@@ -1,4 +1,8 @@
-/* Estilo base */
+/* -------------------- RESET Y BASE -------------------- */
+* {
+  box-sizing: border-box;
+}
+
 html {
   background-color: #f1f5f9;
   font-family: sans-serif;
@@ -13,33 +17,21 @@ body {
   background-color: #f1f5f9;
 }
 
-
-* {
-  box-sizing: border-box;
-}
-
-/* Opcional: Estilizado visual */
-header {
-  background: #0f172a;
-  color: white;
-  text-align: center;
-  padding: 1rem;
- border-radius: 0 0 15px  15px;
-
-}
-
-footer {
-  background: #0f172a;
-  color: white;
-  text-align: center;
-  padding: 1rem;
- border-radius: 15px  15px 0 0;
-}
-
-/* Que el main crezca si hay espacio disponible */
 main {
   flex: 1;
   padding: 1rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  vertical-align: middle;
+}
+
+strong {
+  margin-left: 15px;
 }
 
 h1 {
@@ -47,33 +39,37 @@ h1 {
   font-size: 2.5rem;
 }
 
-a{
-   text-decoration: none;
+/* -------------------- HEADER Y FOOTER -------------------- */
+header {
+  background: #0f172a;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 0 0 15px 15px;
 }
 
-img {
-  vertical-align: middle; 
+footer {
+  background: #0f172a;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 15px 15px 0 0;
 }
 
-strong{
-  margin-left: 15px;
-}
-
-/* ----------- barra nav izq hamburguesa y derecha dia y hora----------- */
-
+/* -------------------- NAVEGACIÓN -------------------- */
 .nav-container {
   display: flex;
-  justify-content: space-between; /* Separar izquierda y derecha */
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   padding: 0 1rem;
-  position: relative; /* Necesario si usas absolute en hijos */
+  position: relative;
 }
 
 .nav-left {
   display: flex;
   align-items: center;
-  gap: 1rem; /* Espacio entre hamburger y navegación */
+  gap: 1rem;
 }
 
 .nav-right {
@@ -81,13 +77,11 @@ strong{
   align-items: center;
 }
 
-
-
-/* ----------- Estilo Hamburguesa ----------- */
+/* --- Hamburguesa móvil --- */
 .hamburger {
   padding: 10px 20px;
   cursor: pointer;
-  display: block; /* visible en móvil */
+  display: block;
   position: absolute;
   top: 10px;
   z-index: 1000;
@@ -102,7 +96,7 @@ strong{
   transition: all 0.3s ease;
 }
 
-/* ----------- Menú desplegable (móvil) ----------- */
+/* --- Menú desplegable móvil --- */
 .nav-links {
   position: absolute;
   top: 60px;
@@ -117,17 +111,14 @@ strong{
   z-index: 999;
 }
 
-/* Al hacer click en hamburguesa */
 .nav-links.expanded {
-  max-height: 300px; /* ajustar según contenido */
+  max-height: 300px;
 }
 
-/* Enlaces */
 .nav-links a {
   display: block;
   text-align: center;
   padding: 10px 0;
-  text-decoration: none;
   font-size: 1.2rem;
   font-weight: bold;
   text-transform: uppercase;
@@ -141,14 +132,14 @@ strong{
   border-radius: 15px;
 }
 
-/* ----------- Menú escritorio ----------- */
+/* --- Escritorio --- */
 @media screen and (min-width: 636px) {
   nav {
     position: static;
   }
 
   .hamburger {
-    display: none; /* ocultar hamburguesa en escritorio */
+    display: none;
   }
 
   .nav-links {
@@ -164,6 +155,30 @@ strong{
   .nav-links a {
     display: inline-block;
     padding: 15px 20px;
-    /* color: #333; */
+  }
+}
+
+/* -------------------- MODO MÓVIL -------------------- */
+@media screen and (max-width: 635px) {
+  header, footer {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  main {
+    padding: 0.75rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+    padding: 8px 0;
+  }
+
+  strong {
+    margin-left: 10px;
   }
 }
