@@ -15,7 +15,9 @@ const { frontmatter } = Astro.props;
   </head>
   <body>
     <Header />
-    <slot />
+    <main>
+      <slot />
+    </main>
     <Footer />
     <script src="/scripts/menu.js" defer></script>
   </body>

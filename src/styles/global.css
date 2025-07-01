@@ -5,13 +5,14 @@ html {
 }
 
 body {
-  margin: 0 auto;
-  width: 100%;
-    height: 100%; /* Necesario para que funcione el 100% de altura */
-  max-width: 80ch;
-  padding: 1rem;
-  line-height: 1.5;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  background-color: #f1f5f9;
 }
+
 
 * {
   box-sizing: border-box;
