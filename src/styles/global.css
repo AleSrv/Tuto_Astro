@@ -47,6 +47,10 @@ footer p {
   border-radius: 0.5rem;
 }
 
+main img{
+  background-color: #0f172a;
+}
+
 /* -------------------- HEADER Y FOOTER -------------------- */
 header {
   background: #0f172a;

@@ -2,12 +2,12 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 
 title: Mi segundo blog
-author: Alumno de Astro
+author: Alex
 description: "Después de aprender un poco de Astro, ¡no podía parar!"
 image:
   url: "https://docs.astro.build/assets/arc.webp"
   alt: "Miniatura de los arcos de Astro."
-pubDate: 2022-07-08
+pubDate: 2025-06-23
 tags: ["astro", "bloguear", "aprender en público", "éxitos"]
 ---
 
