@@ -1,9 +1,6 @@
 ---
-import "../styles/global.css";
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
-
-const pageTitle = "Sobre mi";
+import MainLayout from "../layouts/MainLayout.astro";
+const { pageTitle } = Astro.props;
 const identity = {
   firstName: "Alex",
   country: "Spain",
@@ -36,9 +33,7 @@ const textCase = "uppercase";
 
 <!-- Contenido de la página -->
 
-<body>
-  <Header />
-
+<MainLayout>
   <main>
     <h1>{pageTitle}</h1>
     <h2>... ¡y mi nuevo sitio Astro!</h2>
@@ -79,6 +74,4 @@ const textCase = "uppercase";
       )
     }
   </main>
-  <Footer />
-  <script src="/scripts/menu.js" defer></script>
-</body>
+</MainLayout>

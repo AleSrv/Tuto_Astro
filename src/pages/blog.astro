@@ -1,7 +1,6 @@
 ---
-import "../styles/global.css";
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+
 const pageTitle = "Mi Blog";
 ---
 
@@ -12,9 +11,7 @@ const pageTitle = "Mi Blog";
 </head>
 
 <!-- Contenido de la página -->
-<body>
-  <Header />
-
+<MainLayout>
   <main>
     <h1>{pageTitle}</h1>
     <p>Aquí es donde publicaré acerca de mi viaje aprendiendo Astro:</p>
@@ -24,6 +21,4 @@ const pageTitle = "Mi Blog";
       <li><a href="/posts/post-3/">Publicación 3</a></li>
     </ul>
   </main>
-  <Footer />
-  <script src="/scripts/menu.js" defer></script>
-</body>
+</MainLayout>
