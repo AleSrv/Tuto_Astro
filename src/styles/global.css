@@ -49,6 +49,8 @@ footer p {
 
 main img{
   background-color: #0f172a;
+      width: 100%;
+    height: auto;
 }
 
 /* -------------------- HEADER Y FOOTER -------------------- */
