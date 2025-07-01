@@ -19,14 +19,22 @@ body {
 }
 
 /* Opcional: Estilizado visual */
-header, footer {
+header {
   background: #0f172a;
   color: white;
   text-align: center;
   padding: 1rem;
-  border-radius: 15px;
+ border-radius: 0 0 15px  15px;
+
 }
 
+footer {
+  background: #0f172a;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+ border-radius: 15px  15px 0 0;
+}
 
 /* Que el main crezca si hay espacio disponible */
 main {
