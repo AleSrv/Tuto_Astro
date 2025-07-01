@@ -7,6 +7,7 @@ html {
 body {
   margin: 0 auto;
   width: 100%;
+    height: 100%; /* Necesario para que funcione el 100% de altura */
   max-width: 80ch;
   padding: 1rem;
   line-height: 1.5;
@@ -16,9 +17,37 @@ body {
   box-sizing: border-box;
 }
 
+/* Opcional: Estilizado visual */
+header, footer {
+  background: #0f172a;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 15px;
+}
+
+
+/* Que el main crezca si hay espacio disponible */
+main {
+  flex: 1;
+  padding: 1rem;
+}
+
 h1 {
   margin: 1rem 0;
   font-size: 2.5rem;
+}
+
+a{
+   text-decoration: none;
+}
+
+img {
+  vertical-align: middle; 
+}
+
+strong{
+  margin-left: 15px;
 }
 
 /* ----------- barra nav izq hamburguesa y derecha dia y hora----------- */
@@ -126,6 +155,6 @@ h1 {
   .nav-links a {
     display: inline-block;
     padding: 15px 20px;
-    color: #333;
+    /* color: #333; */
   }
 }
