@@ -20,6 +20,9 @@ h1 {
   margin: 1rem 0;
   font-size: 2.5rem;
 }
+
+/* ----------- barra nav izq hamburguesa y derecha dia y hora----------- */
+
 .nav-container {
   display: flex;
   justify-content: space-between; /* Separar izquierda y derecha */
