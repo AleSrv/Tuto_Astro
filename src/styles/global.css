@@ -3,6 +3,7 @@
   box-sizing: border-box;
 }
 
+
 html {
   background-color: #f1f5f9;
   font-family: sans-serif;
@@ -15,6 +16,7 @@ body {
   flex-direction: column;
   font-family: sans-serif;
   background-color: #f1f5f9;
+    line-height: 2;
 }
 
 main {

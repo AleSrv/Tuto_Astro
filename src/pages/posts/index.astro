@@ -1,0 +1,33 @@
+
+---
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import "../../styles/global.css";
+
+const postImportResult = await Astro.glob("../../content/blog/*.md");
+const posts = postImportResult.map(p => ({ ...p.frontmatter, url: p.url })).sort(
+  (a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime()
+);
+---
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Blog de Alex</title>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1>📚 Mis posts del blog</h1>
+      <ul>
+        {posts.map((post) => (
+          <li>
+            <a href={post.url}><strong>{post.title}</strong></a>
+            <p>{post.description}</p>
+            <small>{post.pubDate.toString().slice(0, 10)}</small>
+          </li>
+        ))}
+      </ul>
+    </main>
+    <Footer />
+  </body>
+</html>
