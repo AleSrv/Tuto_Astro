@@ -18,6 +18,7 @@ import MainFrontmatter from "../components/Header.astro";
     <Header />
     <main>
       <!-- <MainFrontmatter/>  TODO COMPONENTE-->
+       
       <h1>{frontmatter.title}</h1>
       <p>Publicado el: {frontmatter.pubDate.toString().slice(0, 10)}</p>
       <p>Mi estado:<em> {frontmatter.description}</em></p>
