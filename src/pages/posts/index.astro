@@ -1,13 +1,13 @@
-
 ---
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import BlogCard from "../../components/BlogCard.astro";
 import "../../styles/global.css";
 
 type BlogPost = {
   title: string;
   description: string;
-  pubDate: string | Date;
+  pubDate: string;
   author: string;
   tags: string[];
   image: {
@@ -25,8 +25,8 @@ const posts = postImportResult.map((p) => ({
 })).sort(
   (a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime()
 );
-
 ---
+
 <html lang="es">
   <head>
     <meta charset="utf-8" />
@@ -34,17 +34,11 @@ const posts = postImportResult.map((p) => ({
   </head>
   <body>
     <Header />
-    <main>
+    <main style="max-width: 700px; margin: auto; padding: 2rem;">
       <h1>📚 Mis posts del blog</h1>
-      <ul>
-        {posts.map((post) => (
-          <li>
-            <a href={post.url}><strong>{post.title}</strong></a>
-            <p>{post.description}</p>
-            <small>{post.pubDate.toString().slice(0, 10)}</small>
-          </li>
-        ))}
-      </ul>
+      {posts.map((post) => (
+        <BlogCard {...post} />
+      ))}
     </main>
     <Footer />
   </body>
