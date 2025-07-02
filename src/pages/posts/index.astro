@@ -4,10 +4,28 @@ import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import "../../styles/global.css";
 
-const postImportResult = await Astro.glob("../../content/blog/*.md");
-const posts = postImportResult.map(p => ({ ...p.frontmatter, url: p.url })).sort(
+type BlogPost = {
+  title: string;
+  description: string;
+  pubDate: string | Date;
+  author: string;
+  tags: string[];
+  image: {
+    url: string;
+    alt: string;
+  };
+  url: string;
+};
+
+const postImportResult = await Astro.glob("./*.md");
+
+const posts = postImportResult.map((p) => ({
+  ...(p.frontmatter as Omit<BlogPost, "url">),
+  url: p.url!,
+})).sort(
   (a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime()
 );
+
 ---
 <html lang="es">
   <head>

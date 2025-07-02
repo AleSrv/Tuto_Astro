@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
+layout: ../../layouts/BlogLayout.astro
 
 title: Mi segundo blog
 author: Alex
