@@ -223,4 +223,10 @@ footer {
   strong {
     margin-left: 10px;
   }
+
+  article img {
+    max-height: 200px;
+    max-width: min-content;
+
+  }
 }
