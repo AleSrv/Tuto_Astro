@@ -1,0 +1,79 @@
+---
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import BlogCard from "../../components/BlogCard.astro";
+import "../../styles/global.css";
+import type { GetStaticPaths } from "astro";
+
+// 🔠 Tipo del frontmatter que usan tus archivos .md
+type BlogPostFrontmatter = {
+  title: string;
+  description: string;
+  pubDate: string;
+  author: string;
+  tags: string[];
+  image: {
+    url: string;
+    alt: string;
+  };
+};
+
+// 🧠 Astro necesita saber qué rutas (tags) generar al compilar
+export const getStaticPaths: GetStaticPaths = async () => {
+  const postImportResult = await Astro.glob<{ frontmatter: BlogPostFrontmatter }>("../posts/*.md");
+
+  // Reunir todas las etiquetas
+  const allTags: string[] = postImportResult.flatMap((post) => post.frontmatter.tags || []);
+
+  // Eliminar duplicados y ordenar
+  const uniqueTags: string[] = [...new Set(allTags)].sort();
+
+  return uniqueTags.map((tag) => ({
+    params: { tag },
+  }));
+};
+
+// 🚩 Obtenemos el tag de la URL (por ejemplo: /tags/astro)
+const { tag } = Astro.params;
+
+if (!tag) {
+  throw new Error("Etiqueta no especificada.");
+}
+
+// 🚀 Importar todos los posts con frontmatter y URL
+const postImportResult = await Astro.glob<{
+  frontmatter: BlogPostFrontmatter;
+  url: string;
+}>("../posts/*.md");
+
+// 🔄 Mapear cada post con su frontmatter y URL
+const posts = postImportResult.map((p) => ({
+  ...p.frontmatter,
+  url: p.url!,
+}));
+
+// 🔎 Filtrar por etiqueta
+const filteredPosts = posts.filter((post) =>
+  post.tags.map((t) => t.toLowerCase()).includes(tag.toLowerCase())
+);
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Posts con la etiqueta #{tag}</title>
+  </head>
+  <body>
+    <Header />
+    <main style="max-width: 700px; margin: auto; padding: 2rem;">
+      <h1>🏷️ Posts con la etiqueta: <code>#{tag}</code></h1>
+
+      {filteredPosts.length > 0 ? (
+        filteredPosts.map((post) => <BlogCard {...post} />)
+      ) : (
+        <p>No hay publicaciones con esta etiqueta aún.</p>
+      )}
+    </main>
+    <Footer />
+  </body>
+</html>
