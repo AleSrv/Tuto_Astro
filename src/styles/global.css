@@ -80,6 +80,8 @@ article{
  border: 1px solid #ccc
 }
 
+
+
 /* -------------------- NAVEGACIÓN -------------------- */
 .nav-container {
   display: flex;
@@ -222,4 +224,9 @@ footer {
   strong {
     margin-left: 10px;
   }
+
+  article img{
+  height: 200px;
+  max-width:fit-content;
+}
 }
