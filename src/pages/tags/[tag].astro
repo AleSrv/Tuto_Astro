@@ -3,10 +3,11 @@ import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import BlogCard from "../../components/BlogCard.astro";
 import "../../styles/global.css";
-import { normalizeTags } from "../../utils/normalize"; // ✅ función reutilizable
+
+import { normalizeTags, normalizeValue } from "../../utils/normalize";
 import type { GetStaticPaths, MarkdownInstance } from "astro";
 
-// 🧩 Tipo del frontmatter
+// 📦 Tipo del frontmatter en tus archivos .md
 type BlogPostFrontmatter = {
   title: string;
   description: string;
@@ -19,9 +20,10 @@ type BlogPostFrontmatter = {
   };
 };
 
-// ✅ Paso 1: Generar rutas dinámicas para cada etiqueta
+// 🔁 Genera las rutas dinámicas (ej: /tags/react, /tags/astro)
 export const getStaticPaths: GetStaticPaths = async () => {
-  const postImportResult = await Astro.glob<BlogPostFrontmatter>("../posts/*.md");
+  const postImportResult =
+    await Astro.glob<BlogPostFrontmatter>("../posts/*.md");
 
   const allTags = postImportResult.flatMap(
     (post: MarkdownInstance<BlogPostFrontmatter>) => post.frontmatter.tags ?? []
@@ -34,14 +36,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }));
 };
 
-// ✅ Paso 2: Obtener el tag desde la URL
+// 🧾 Tomar el tag de la URL (ej: "astro")
 const { tag } = Astro.params;
 
 if (!tag) {
   throw new Error("Etiqueta no especificada.");
 }
 
-// ✅ Paso 3: Cargar todos los posts
+// 📥 Importar todos los posts
 const postImportResult = await Astro.glob<BlogPostFrontmatter>("../posts/*.md");
 
 const posts = postImportResult.map((p) => ({
@@ -49,9 +51,9 @@ const posts = postImportResult.map((p) => ({
   url: p.url!,
 }));
 
-// ✅ Paso 4: Filtrar posts por la etiqueta seleccionada
+// 🎯 Filtrar posts por el tag
 const filteredPosts = posts.filter((post) =>
-  normalizeTags(post.tags).includes(String(tag).toLowerCase())
+  normalizeTags(post.tags).includes(normalizeValue(tag))
 );
 ---
 
@@ -65,21 +67,23 @@ const filteredPosts = posts.filter((post) =>
     <main style="max-width: 700px; margin: auto; padding: 2rem;">
       <h1>🏷️ Posts con la etiqueta: <code>#{tag}</code></h1>
 
-      {filteredPosts.length > 0 ? (
-        filteredPosts.map((post) => (
-          <BlogCard
-            title={post.title}
-            description={post.description}
-            pubDate={post.pubDate}
-            author={post.author}
-            tags={post.tags}
-            image={post.image}
-            url={post.url}
-          />
-        ))
-      ) : (
-        <p>No hay publicaciones con esta etiqueta aún.</p>
-      )}
+      {
+        filteredPosts.length > 0 ? (
+          filteredPosts.map((post) => (
+            <BlogCard
+              title={post.title}
+              description={post.description}
+              pubDate={post.pubDate}
+              author={post.author}
+              tags={post.tags}
+              image={post.image}
+              url={post.url}
+            />
+          ))
+        ) : (
+          <p>No hay publicaciones con esta etiqueta aún.</p>
+        )
+      }
     </main>
     <Footer />
   </body>
