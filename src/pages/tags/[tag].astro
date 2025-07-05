@@ -4,8 +4,10 @@ import Footer from "../../components/Footer.astro";
 import BlogCard from "../../components/BlogCard.astro";
 import "../../styles/global.css";
 import type { GetStaticPaths } from "astro";
+import type { MarkdownInstance } from "astro";
 
 // 🔠 Tipo del frontmatter que usan tus archivos .md
+
 type BlogPostFrontmatter = {
   title: string;
   description: string;
@@ -18,15 +20,19 @@ type BlogPostFrontmatter = {
   };
 };
 
+
 // 🧠 Astro necesita saber qué rutas (tags) generar al compilar
 export const getStaticPaths: GetStaticPaths = async () => {
-  const postImportResult = await Astro.glob<{ frontmatter: BlogPostFrontmatter }>("../posts/*.md");
+  const postImportResult = await Astro.glob<BlogPostFrontmatter>("../posts/*.md");
+
 
   // Reunir todas las etiquetas
-  const allTags: string[] = postImportResult.flatMap((post) => post.frontmatter.tags || []);
+  const allTags: string[] = postImportResult.flatMap(
+    (post: MarkdownInstance<BlogPostFrontmatter>) => post.frontmatter.tags ?? []
+  );
 
   // Eliminar duplicados y ordenar
-  const uniqueTags: string[] = [...new Set(allTags)].sort();
+const uniqueTags: string[] = [...new Set(allTags.map((t) => String(t)))].sort();
 
   return uniqueTags.map((tag) => ({
     params: { tag },
@@ -41,20 +47,17 @@ if (!tag) {
 }
 
 // 🚀 Importar todos los posts con frontmatter y URL
-const postImportResult = await Astro.glob<{
-  frontmatter: BlogPostFrontmatter;
-  url: string;
-}>("../posts/*.md");
+const postImportResult = await Astro.glob<BlogPostFrontmatter>("../posts/*.md");
 
-// 🔄 Mapear cada post con su frontmatter y URL
 const posts = postImportResult.map((p) => ({
   ...p.frontmatter,
   url: p.url!,
 }));
 
+
 // 🔎 Filtrar por etiqueta
 const filteredPosts = posts.filter((post) =>
-  post.tags.map((t) => t.toLowerCase()).includes(tag.toLowerCase())
+  post.tags.map((t) =>String(t).toLowerCase()).includes(String(tag).toLowerCase())
 );
 ---
 
