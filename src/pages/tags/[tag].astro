@@ -3,11 +3,10 @@ import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import BlogCard from "../../components/BlogCard.astro";
 import "../../styles/global.css";
-import type { GetStaticPaths } from "astro";
-import type { MarkdownInstance } from "astro";
+import { normalizeTags } from "../../utils/normalize"; // ✅ función reutilizable
+import type { GetStaticPaths, MarkdownInstance } from "astro";
 
-// 🔠 Tipo del frontmatter que usan tus archivos .md
-
+// 🧩 Tipo del frontmatter
 type BlogPostFrontmatter = {
   title: string;
   description: string;
@@ -20,33 +19,29 @@ type BlogPostFrontmatter = {
   };
 };
 
-
-// 🧠 Astro necesita saber qué rutas (tags) generar al compilar
+// ✅ Paso 1: Generar rutas dinámicas para cada etiqueta
 export const getStaticPaths: GetStaticPaths = async () => {
   const postImportResult = await Astro.glob<BlogPostFrontmatter>("../posts/*.md");
 
-
-  // Reunir todas las etiquetas
-  const allTags: string[] = postImportResult.flatMap(
+  const allTags = postImportResult.flatMap(
     (post: MarkdownInstance<BlogPostFrontmatter>) => post.frontmatter.tags ?? []
   );
 
-  // Eliminar duplicados y ordenar
-const uniqueTags: string[] = [...new Set(allTags.map((t) => String(t)))].sort();
+  const uniqueTags = normalizeTags(allTags);
 
   return uniqueTags.map((tag) => ({
     params: { tag },
   }));
 };
 
-// 🚩 Obtenemos el tag de la URL (por ejemplo: /tags/astro)
+// ✅ Paso 2: Obtener el tag desde la URL
 const { tag } = Astro.params;
 
 if (!tag) {
   throw new Error("Etiqueta no especificada.");
 }
 
-// 🚀 Importar todos los posts con frontmatter y URL
+// ✅ Paso 3: Cargar todos los posts
 const postImportResult = await Astro.glob<BlogPostFrontmatter>("../posts/*.md");
 
 const posts = postImportResult.map((p) => ({
@@ -54,10 +49,9 @@ const posts = postImportResult.map((p) => ({
   url: p.url!,
 }));
 
-
-// 🔎 Filtrar por etiqueta
+// ✅ Paso 4: Filtrar posts por la etiqueta seleccionada
 const filteredPosts = posts.filter((post) =>
-  post.tags.map((t) =>String(t).toLowerCase()).includes(String(tag).toLowerCase())
+  normalizeTags(post.tags).includes(String(tag).toLowerCase())
 );
 ---
 
@@ -72,7 +66,17 @@ const filteredPosts = posts.filter((post) =>
       <h1>🏷️ Posts con la etiqueta: <code>#{tag}</code></h1>
 
       {filteredPosts.length > 0 ? (
-        filteredPosts.map((post) => <BlogCard {...post} />)
+        filteredPosts.map((post) => (
+          <BlogCard
+            title={post.title}
+            description={post.description}
+            pubDate={post.pubDate}
+            author={post.author}
+            tags={post.tags}
+            image={post.image}
+            url={post.url}
+          />
+        ))
       ) : (
         <p>No hay publicaciones con esta etiqueta aún.</p>
       )}
