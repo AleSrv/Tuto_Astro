@@ -1,6 +1,6 @@
 ---
-import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
+import MainLayout from "../../layouts/MainLayout.astro";
+const pageTitle = "Mis Blog";
 import BlogCard from "../../components/BlogCard.astro";
 import "../../styles/global.css";
 
@@ -27,19 +27,11 @@ const posts = postImportResult.map((p) => ({
 );
 ---
 
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <title>Blog de Alex</title>
-  </head>
-  <body>
-    <Header />
+<MainLayout pageTitle={pageTitle}>
     <main style="max-width: 700px; margin: auto; padding: 2rem;">
       <h1>📚 Mis posts del blog</h1>
       {posts.map((post) => (
         <BlogCard {...post} />
       ))}
     </main>
-    <Footer />
-  </body>
-</html>
+</MainLayout>
