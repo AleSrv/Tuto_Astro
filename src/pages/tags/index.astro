@@ -21,7 +21,11 @@ const uniqueTags = [...new Set(allTags)].sort();
       {
         uniqueTags.map((tag) => {
           const safeTag = String(tag).toLowerCase();
-          return <a href={`/tags/${safeTag}`}>#{tag}</a>;
+          return (
+            <a href={`/tags/${safeTag}`}>
+              <span>#{tag}</span>
+            </a>
+          );
         })
       }
     </div>
