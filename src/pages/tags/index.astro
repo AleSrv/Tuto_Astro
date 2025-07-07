@@ -2,6 +2,8 @@
 import MainLayout from "../../layouts/MainLayout.astro";
 import "../../styles/global.css";
 
+
+
 // Importar todos los posts del blog
 const postImportResult = await Astro.glob("../posts/*.md");
 
@@ -10,9 +12,10 @@ const allTags = postImportResult.flatMap((p) => p.frontmatter.tags || []);
 
 // Eliminar duplicados y ordenar alfabéticamente
 const uniqueTags = [...new Set(allTags)].sort();
+const pageTitle = "Tags #"
 ---
 
-<MainLayout>
+<MainLayout pageTitle={pageTitle}>
   <main style="max-width: 700px; margin: auto; padding: 2rem;">
     <h1>🏷️ Todas las etiquetas</h1>
     <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">

@@ -54,9 +54,11 @@ const posts = postImportResult.map((p) => ({
 const filteredPosts = posts.filter((post) =>
   normalizeTags(post.tags).includes(normalizeValue(tag))
 );
+
+const pageTitle = `Tag #${tag}`;
 ---
 
-<MainLayout>
+<MainLayout pageTitle={pageTitle}>
   <main style="max-width: 700px; margin: auto; padding: 2rem;">
     <h1>🏷️ Posts con la etiqueta: <code>#{tag}</code></h1>
 
