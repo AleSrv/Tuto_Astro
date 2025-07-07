@@ -29,6 +29,12 @@ a {
   text-decoration: none;
 }
 
+span{
+  color: #0f172a;
+  background-color: aquamarine;
+  font-weight: bold;
+}
+
 img {
   vertical-align: middle;
 }
