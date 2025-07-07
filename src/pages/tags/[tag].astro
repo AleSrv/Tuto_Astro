@@ -35,7 +35,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }));
 };
 
-// 🧾 Tomar el tag de la URL (ej: "astro")
 const { tag } = Astro.params;
 
 if (!tag) {
