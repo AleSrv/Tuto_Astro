@@ -1,6 +1,5 @@
 ---
-import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
+import MainLayout from "../../layouts/MainLayout.astro";
 import BlogCard from "../../components/BlogCard.astro";
 import "../../styles/global.css";
 
@@ -19,27 +18,19 @@ type BlogPost = {
 
 const postImportResult = await Astro.glob("./*.md");
 
-const posts = postImportResult.map((p) => ({
-  ...(p.frontmatter as Omit<BlogPost, "url">),
-  url: p.url!,
-})).sort(
-  (a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime()
-);
+const posts = postImportResult
+  .map((p) => ({
+    ...(p.frontmatter as Omit<BlogPost, "url">),
+    url: p.url!,
+  }))
+  .sort(
+    (a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime()
+  );
 ---
 
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <title>Blog de Alex</title>
-  </head>
-  <body>
-    <Header />
-    <main style="max-width: 700px; margin: auto; padding: 2rem;">
-      <h1>📚 Mis posts del blog</h1>
-      {posts.map((post) => (
-        <BlogCard {...post} />
-      ))}
-    </main>
-    <Footer />
-  </body>
-</html>
+<MainLayout>
+  <main style="max-width: 700px; margin: auto; padding: 2rem;">
+    <h1>📚 Mis posts del blog</h1>
+    {posts.map((post) => <BlogCard {...post} />)}
+  </main>
+</MainLayout>

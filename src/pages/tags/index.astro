@@ -1,6 +1,5 @@
 ---
-import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
+import MainLayout from "../../layouts/MainLayout.astro";
 import "../../styles/global.css";
 
 // Importar todos los posts del blog
@@ -13,29 +12,20 @@ const allTags = postImportResult.flatMap((p) => p.frontmatter.tags || []);
 const uniqueTags = [...new Set(allTags)].sort();
 ---
 
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <title>Explorar etiquetas</title>
-  </head>
-  <body>
-    <Header />
-
-    <main style="max-width: 700px; margin: auto; padding: 2rem;">
-      <h1>🏷️ Todas las etiquetas</h1>
-      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-        {
-          uniqueTags.map((tag) => {
-            const safeTag = String(tag).toLowerCase();
-            return (
-              <a href={`/tags/${safeTag}`}>
-                <span>#{tag}</span>
-              </a>
-            );
-          })
-        }
-      </div>
-    </main>
-    <Footer />
-  </body>
-</html>
+<MainLayout>
+  <main style="max-width: 700px; margin: auto; padding: 2rem;">
+    <h1>🏷️ Todas las etiquetas</h1>
+    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+      {
+        uniqueTags.map((tag) => {
+          const safeTag = String(tag).toLowerCase();
+          return (
+            <a href={`/tags/${safeTag}`}>
+              <span>#{tag}</span>
+            </a>
+          );
+        })
+      }
+    </div>
+  </main>
+</MainLayout>

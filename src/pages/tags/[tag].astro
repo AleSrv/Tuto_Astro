@@ -1,7 +1,6 @@
 ---
-import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
 import BlogCard from "../../components/BlogCard.astro";
+import MainLayout from "../../layouts/MainLayout.astro";
 import "../../styles/global.css";
 
 import { normalizeTags, normalizeValue } from "../../utils/normalize";
@@ -57,34 +56,26 @@ const filteredPosts = posts.filter((post) =>
 );
 ---
 
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <title>Posts con la etiqueta #{tag}</title>
-  </head>
-  <body>
-    <Header />
-    <main style="max-width: 700px; margin: auto; padding: 2rem;">
-      <h1>🏷️ Posts con la etiqueta: <code>#{tag}</code></h1>
+<MainLayout>
+  <main style="max-width: 700px; margin: auto; padding: 2rem;">
+    <h1>🏷️ Posts con la etiqueta: <code>#{tag}</code></h1>
 
-      {
-        filteredPosts.length > 0 ? (
-          filteredPosts.map((post) => (
-            <BlogCard
-              title={post.title}
-              description={post.description}
-              pubDate={post.pubDate}
-              author={post.author}
-              tags={post.tags}
-              image={post.image}
-              url={post.url}
-            />
-          ))
-        ) : (
-          <p>No hay publicaciones con esta etiqueta aún.</p>
-        )
-      }
-    </main>
-    <Footer />
-  </body>
-</html>
+    {
+      filteredPosts.length > 0 ? (
+        filteredPosts.map((post) => (
+          <BlogCard
+            title={post.title}
+            description={post.description}
+            pubDate={post.pubDate}
+            author={post.author}
+            tags={post.tags}
+            image={post.image}
+            url={post.url}
+          />
+        ))
+      ) : (
+        <p>No hay publicaciones con esta etiqueta aún.</p>
+      )
+    }
+  </main>
+</MainLayout>
