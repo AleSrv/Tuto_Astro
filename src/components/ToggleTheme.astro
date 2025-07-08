@@ -1,0 +1,15 @@
+---
+// src/components/ToggleTheme.astro
+---
+<button id="toggle-theme" aria-label="Cambiar tema">🌙/☀️</button>
+
+
+<script is:inline>
+  const toggleButton = document.getElementById("toggle-theme");
+  toggleButton?.addEventListener("click", () => {
+    const current = document.documentElement.getAttribute("data-theme");
+    const next = current === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    localStorage.setItem("theme", next);
+  });
+</script>

@@ -2,6 +2,7 @@
 import DiaYHora from "./DiaYHora";
 import Hamburger from "./Hamburger.astro";
 import Navigation from "./Navigation.astro";
+import ToggleTheme from "./ToggleTheme.astro";
 ---
 
 
@@ -13,6 +14,7 @@ import Navigation from "./Navigation.astro";
     </div>
 
     <div class="nav-right">
+      <ToggleTheme/>
       <DiaYHora client:load />
     </div>
   </nav>

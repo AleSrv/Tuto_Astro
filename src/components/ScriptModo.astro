@@ -1,0 +1,8 @@
+<!-- src/components/ToggleTheme.astro -->
+<script is:inline>
+  // Aplicar tema al cargar
+  const userPref = localStorage.getItem("theme");
+  const systemPref = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  const theme = userPref || systemPref;
+  document.documentElement.setAttribute("data-theme", theme);
+</script>
