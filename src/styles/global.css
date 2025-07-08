@@ -49,7 +49,7 @@ h1 {
 }
 
 footer p {
-  background-color: white;
+   background-color: white;
   color: #0f172a;
   display: inline-block;
   padding: 0.25rem 0.5rem;
@@ -64,7 +64,7 @@ main img{
 
 /* -------------------- HEADER Y FOOTER -------------------- */
 header {
-  background: #0f172a;
+  background-color: #0f172a;
   color: white;
   text-align: center;
   padding: 1rem;
@@ -123,7 +123,8 @@ article{
   width: 35px;
   height: 4px;
   margin-bottom: 8px;
-  background-color: #ff9776;
+   background-color: white;
+  color: #0f172a;
   transition: all 0.3s ease;
 }
 
@@ -135,7 +136,7 @@ article{
   width: 100%;
   overflow: hidden;
   max-height: 0;
-  background-color: #ff9776;
+  background-color: white;
   border-top: 2px solid white;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   transition: max-height 0.5s ease-in-out;
@@ -144,6 +145,8 @@ article{
 
 .nav-links.expanded {
   max-height: 300px;
+background-color: #0f172a  ;
+border-radius: 0 0 15px 15px;
 }
 
 .nav-links a {
@@ -153,13 +156,15 @@ article{
   font-size: 1.2rem;
   font-weight: bold;
   text-transform: uppercase;
+    background-color:#0f172a ;
   color: white;
   transition: background 0.3s ease;
 }
 
 .nav-links a:hover,
 .nav-links a:focus {
-  background-color: #e56c4c;
+  background-color: white;
+  color: #0f172a;
   border-radius: 15px;
 }
 
