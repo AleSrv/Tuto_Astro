@@ -12,7 +12,7 @@ const allTags = postImportResult.flatMap((p) => p.frontmatter.tags || []);
 
 // Eliminar duplicados y ordenar alfabéticamente
 const uniqueTags = [...new Set(allTags)].sort();
-const pageTitle = "Tags #"
+const pageTitle = "Tags #️⃣"
 ---
 
 <MainLayout pageTitle={pageTitle}>
@@ -24,7 +24,7 @@ const pageTitle = "Tags #"
           const safeTag = String(tag).toLowerCase();
           return (
             <a href={`/tags/${safeTag}`}>
-              <span>#{tag}</span>
+              <span>#️⃣{tag}</span>
             </a>
           );
         })
