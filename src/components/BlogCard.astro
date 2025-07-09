@@ -26,10 +26,10 @@ const { title, description, pubDate, author, url, image, tags } =
     <h2 style="margin-top: 0.5rem;">{title}</h2>
     <p style="color: #555;">{description}</p>
   </a>
-  <small>📅 {pubDate.slice(0, 10)} · ✍ {author}</small>
+  <small class="blog-small">📅 {pubDate.slice(0, 10)} · ✍ {author}</small>
   <div style="margin-top: 0.5rem;">
     {
-      tags.map((tag) => (
+      tags.map((tag) => ( 
         <a
           href={`/tags/${tag.toLowerCase()}`}
           style="margin-right: 0.4rem; font-size: 0.85rem; color: #0ea5e9;"
