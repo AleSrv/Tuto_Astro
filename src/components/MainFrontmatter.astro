@@ -1,15 +1,29 @@
 ---
 const { frontmatter } = Astro.props;
-import TagList from './TagList.astro';
+import TagList from "./TagList.astro";
 ---
-<article>
+
+<>
   <h1>{frontmatter.title}</h1>
   <p>📅 Publicado el: {frontmatter.pubDate.toString().slice(0, 10)}</p>
   <p>📝 Mi estado: <em>{frontmatter.description}</em></p>
   <p>✍ Autor: {frontmatter.author}</p>
-  <!--Contenido del Markdown dentro de slot-->
+
   <slot />
+
   <img src={frontmatter.image.url} alt={frontmatter.image.alt} />
-  <!--Componente que trae los Tags-->
-  <TagList tags={frontmatter.tags} />
-</article>
+
+  {
+    Array.isArray(frontmatter.tags) && frontmatter.tags.length > 0 ? (
+      <div>
+        <p>🏷️ Tags:</p>
+        <TagList tags={frontmatter.tags} />
+      </div>
+    ) : (
+      <div>
+        <p>🏷️ Tags:</p>
+        <p>No hay Tags para el elemento seleccionado</p>
+      </div>
+    )
+  }
+</>

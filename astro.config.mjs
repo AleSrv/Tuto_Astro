@@ -5,4 +5,5 @@ import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
   integrations: [react()],
+  site:"https://tutorial-astro-wassaman.netlify.app/posts/"
 });

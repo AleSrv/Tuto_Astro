@@ -5,14 +5,11 @@ interface Props {
 const { tags } = Astro.props as Props;
 ---
 
-<p>🏷️ Tags:</p>
 <div style="margin-bottom: 1rem;">
   {
     tags.map((tag) => (
       <a
-        href={`/tags/${tag.toLowerCase()}`}
-        style="margin-right: 0.5rem; padding: 0.2rem 0.5rem; background: #eee; border-radius: 5px; text-decoration: none; color: #333;"
-      >
+        href={`/tags/${tag.toLowerCase()}`} >
         <span>#️⃣{tag}</span>
       </a>
     ))

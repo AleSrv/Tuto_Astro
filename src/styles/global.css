@@ -37,7 +37,14 @@ main {
 }
 
 a {
-  text-decoration: none;
+    margin: 5px;
+    border-radius: 5px; 
+    text-decoration: none; 
+    color: #333;
+}
+
+p{
+  margin: 20px;
 }
 
 span {
@@ -235,6 +242,17 @@ article img {
   color: #0f172a;
   border-radius: 15px;
 }
+
+/*--------button pequeño  en movil*/
+@media screen and (max-width: 635px) {
+  button {
+    font-size: 1rem; /* más pequeño */
+    margin: 5px;     /* menos espacio alrededor */
+     padding: 0.5rem;
+    border-radius: 10px;
+  }
+}
+
 
 /* -------------------- ESCRITORIO -------------------- */
 @media screen and (min-width: 636px) {
