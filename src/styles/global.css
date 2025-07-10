@@ -246,9 +246,9 @@ article img {
 /*--------button pequeño  en movil*/
 @media screen and (max-width: 635px) {
   button {
-    font-size: 0.75rem;
+    font-size: 1rem;
     border-radius: 10px;
-    margin-left: 2px;
+    margin-left: 20px;
   }
 }
 
