@@ -45,6 +45,7 @@ a {
 
 p{
   margin: 20px;
+  font-size:x-small;
 }
 
 span {
@@ -99,6 +100,9 @@ button:hover {
   background: linear-gradient(to right, #3b82f6, #6366f1);
 }
 
+nav{
+  align-content: space-between;
+}
 /* -------------------- HEADER Y FOOTER -------------------- */
 header {
   background: #0f172a;
