@@ -243,6 +243,16 @@ article img {
   border-radius: 15px;
 }
 
+/*--------button pequeño  en movil*/
+@media screen and (max-width: 635px) {
+  button {
+    font-size: 0.5rem;
+    border-radius: 10px;
+    margin-left: 15px;
+  }
+}
+
+
 /* -------------------- ESCRITORIO -------------------- */
 @media screen and (min-width: 636px) {
   header,
