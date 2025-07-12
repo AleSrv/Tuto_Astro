@@ -257,6 +257,63 @@ article img {
   }
 }
 
+   .temario {
+      list-style: none;
+      padding: 0;
+      max-width: 400px;
+    }
+    
+    /* Estilos para personalizar details y summary */
+    details {
+      background-color: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+
+    summary {
+      padding: 0.75rem 1rem;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      list-style: none;
+    }
+    
+    /* Elimina el triángulo por defecto del summary y reemplázalo si lo deseas */
+    summary::-webkit-details-marker {
+      display: none;
+    }
+    
+    /* Agregar un indicador personalizado al summary */
+    summary::after {
+      content: '▼';
+      float: right;
+      transition: transform 0.3s ease;
+    }
+    
+    /* Gira el indicador cuando está abierto */
+    details[open] summary::after {
+      transform: rotate(180deg);
+    }
+    
+    .contenido-unidad {
+      padding: 0.5rem 1.5rem 1rem 1.5rem;
+      margin: 0;
+    }
+    
+    .contenido-unidad li {
+      padding: 0.25rem 0;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      details {
+        background-color: #1e293b;
+        border-color: #334155;
+        color: white;
+      }
+    }
+
 
 /* -------------------- ESCRITORIO -------------------- */
 @media screen and (min-width: 636px) {
