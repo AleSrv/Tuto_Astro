@@ -17,17 +17,17 @@ const { title, description, pubDate, author, url, image, tags } =
 ---
 
 <article>
-  <a href={url} style="text-decoration: none; color: inherit;">
+  <a href={url}>
     <img
       src={image.url}
       alt={image.alt}
-      style="width: 100%; border-radius: 8px; object-fit: cover;"
+      style="width: 100%; border-radius: 8px;"
     />
     <h2 style="margin-top: 0.5rem;">{title}</h2>
     <p style="color: #555;">{description}</p>
   </a>
   <small class="blog-small">📅 {pubDate.slice(0, 10)} · ✍ {author}</small>
-  <div style="margin-top: 0.5rem;">
+  <div>
     {
       tags.map((tag) => ( 
         <a
