@@ -11,7 +11,7 @@ import TagList from "./TagList.astro";
 
   <slot />
 
-  <img src={frontmatter.image.url} alt={frontmatter.image.alt} />
+  <img class="img-post" src={frontmatter.image.url} alt={frontmatter.image.alt} />
 
   {
     Array.isArray(frontmatter.tags) && frontmatter.tags.length > 0 ? (
