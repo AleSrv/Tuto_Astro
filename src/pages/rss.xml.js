@@ -6,6 +6,6 @@ export async function GET(context) {
     description: 'Mi viaje de aprendizaje de Astro',
     site: context.site,
     items: await pagesGlobToRssItems(import.meta.glob('./**/*.md')),
-    customData: `<language>en-us</language>`,
+    customData: `<language>es-es</language>`,
   });
 }
